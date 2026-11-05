@@ -1,4 +1,4 @@
-import { getCurrentUser } from "@/lib/api/profile";
+import { cookies } from "next/headers";
 import { cn } from "cn";
 import { LogIn, User } from "lucide-react";
 import Link from "next/link";
@@ -8,10 +8,13 @@ const base =
   "relative flex h-10 w-10 items-center justify-center gap-2 rounded-full border px-0 text-sm font-medium transition-[background-color,transform] active:scale-95 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none lg:h-11 lg:w-auto lg:px-4";
 
 async function Profile() {
-  const user = await getCurrentUser();
+  const cookieStore = await cookies();
+  const hasSession =
+    cookieStore.has("__Host-customer_access") ||
+    cookieStore.has("__Host-customer_refresh");
   return (
     <>
-      {user ? (
+      {hasSession ? (
         <Link
           href="/profile"
           prefetch={false}

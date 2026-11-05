@@ -19,15 +19,17 @@ import type { CartLine } from "@/types/cartLine";
 export function useCartActions() {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
-  const { lines, applyOptimistic } = useCart();
+  const { lines, loaded, applyOptimistic, refresh } = useCart();
 
-  function handleResult(res: ActionResult, successMessage?: string) {
+  async function handleResult(res: ActionResult, successMessage?: string) {
     if (res.ok) {
       if (successMessage) toast.success(successMessage);
+      await refresh();
       return;
     }
     toast.error(res.error);
     if (res.code === "UNAUTHORIZED") router.push("/login");
+    await refresh();
   }
 
   function add(input: {
@@ -46,7 +48,7 @@ export function useCartActions() {
           quantity,
         },
       });
-      handleResult(
+      await handleResult(
         await addToCart({
           productId: input.productId,
           variantId: input.variantId,
@@ -61,13 +63,13 @@ export function useCartActions() {
     startTransition(async () => {
       if (next < 1) {
         applyOptimistic({ type: "remove", id: line.id });
-        handleResult(await removeItemFromCart(line.id), "Cart se hata diya");
+        await handleResult(await removeItemFromCart(line.id), "Cart se hata diya");
         return;
       }
       applyOptimistic({ type: "set", id: line.id, quantity: next });
-      handleResult(await updateQuantity({ id: line.id, quantity: next }));
+      await handleResult(await updateQuantity({ id: line.id, quantity: next }));
     });
   }
 
-  return { lines, pending, add, changeQuantity };
+  return { lines, loaded, pending, add, changeQuantity };
 }

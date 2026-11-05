@@ -8,7 +8,6 @@ import { Toaster } from "@/components/ui/sonner";
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 // import Logo from "@/lib/assets/logo.webp"
 import { CartProvider } from "@/components/cart/CartProvider";
-import { getCartSnapshot } from "@/lib/api/cart";
 
 // export const metadata: Metadata = {
 //   icons:[],
@@ -46,18 +45,8 @@ export default async function StoreLayout({
   children: React.ReactNode;
   }) {
   console.log("heloo ")
-  const cart = await getCartSnapshot();
-  const lines = (cart?.items ?? []).map(
-    ({ id, productId, variantId, quantity }) => ({
-      id,
-      productId,
-      variantId,
-      quantity,
-    }),
-  );
-
   return (
-    <CartProvider lines={lines}>
+    <CartProvider>
       <Offers />
       <Header />
       <main className="mx-auto w-full max-w-7xl px-4 pb-16 lg:px-8">

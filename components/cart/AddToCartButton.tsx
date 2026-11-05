@@ -12,7 +12,7 @@ const btn = "h-11 w-full bg-accent text-accent-foreground hover:bg-accent/90";
 
 export function AddToCartButton({ product }: { product: Product }) {
   const [open, setOpen] = useState(false);
-  const { lines, pending, add, changeQuantity } = useCartActions();
+  const { lines, loaded, pending, add, changeQuantity } = useCartActions();
   const action = getCardAction(product);
 
   const productLines = lines.filter((l) => l.productId === product.id);
@@ -22,8 +22,14 @@ export function AddToCartButton({ product }: { product: Product }) {
     const inCart = productLines.reduce((n, l) => n + l.quantity, 0);
     return (
       <>
-        <Button className={btn} onClick={() => setOpen(true)}>
-          Select Options{inCart > 0 ? ` (${inCart})` : ""}
+        <Button
+          className={btn}
+          disabled={!loaded}
+          onClick={() => setOpen(true)}
+        >
+          {!loaded
+            ? "Loading cart..."
+            : `Select Options${inCart > 0 ? ` (${inCart})` : ""}`}
         </Button>
         {/* Dialog tabhi mount ho jab khule, taaki har baar fresh state mile */}
         {open && (
@@ -54,15 +60,19 @@ export function AddToCartButton({ product }: { product: Product }) {
       <QuantityStepper
         className="h-11 w-full rounded-md"
         quantity={line.quantity}
-        pending={pending}
+        pending={pending || !loaded}
         onChange={(next) => changeQuantity(line, next)}
       />
     );
   }
 
   return (
-    <Button className={btn} disabled={pending} onClick={() => add(target)}>
-      {pending ? "Adding..." : "Add to Cart"}
+    <Button
+      className={btn}
+      disabled={pending || !loaded}
+      onClick={() => add(target)}
+    >
+      {!loaded ? "Loading cart..." : pending ? "Adding..." : "Add to Cart"}
     </Button>
   );
 }

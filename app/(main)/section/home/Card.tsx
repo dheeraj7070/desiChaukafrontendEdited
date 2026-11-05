@@ -73,6 +73,7 @@ export function ProductCard({ product }: { product: Product }) {
         <CardTitle className="line-clamp-2 min-h-10 text-sm leading-5 font-semibold capitalize @[200px]/card:text-[15px]">
           <Link
             href={`/products/${id}`}
+            prefetch={false}
             className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ring"
           >
             {name}

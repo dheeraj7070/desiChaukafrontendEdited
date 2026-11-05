@@ -75,6 +75,7 @@ export function ProductCard({ product }: { product: Product }) {
           {/* Stretched link: after:inset-0 se poora card clickable ho jaata hai */}
           <Link
             href={`/products/${id}`}
+            prefetch={false}
             className="after:absolute after:inset-0 after:content-[''] focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-ring"
           >
             {name}

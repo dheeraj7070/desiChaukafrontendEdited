@@ -27,7 +27,7 @@ export default function Purchase({
   disabledLabel = "Unavailable",
 }: Props) {
   const [qty, setQty] = useState(1);
-  const { lines, pending, add, changeQuantity } = useCartActions();
+  const { lines, loaded, pending, add, changeQuantity } = useCartActions();
 
   // Variant badalne par maxQty kam ho jaye to qty bhi neeche aa jaye
   const safeQty = Math.min(qty, maxQty);
@@ -47,7 +47,7 @@ export default function Purchase({
             className="h-12 w-40 rounded-full"
             quantity={line.quantity}
             max={maxQty}
-            pending={pending}
+            pending={pending || !loaded}
             onChange={(next) => changeQuantity(line, next)}
           />
           <Link
@@ -75,7 +75,7 @@ export default function Purchase({
         <button
           type="button"
           aria-label="Decrease quantity"
-          disabled={disabled || pending || safeQty <= 1}
+          disabled={disabled || pending || !loaded || safeQty <= 1}
           onClick={() => setQty(safeQty - 1)}
           className="grid size-12 place-items-center rounded-full hover:bg-muted disabled:opacity-40"
         >
@@ -87,7 +87,7 @@ export default function Purchase({
         <button
           type="button"
           aria-label="Increase quantity"
-          disabled={disabled || pending || safeQty >= maxQty}
+          disabled={disabled || pending || !loaded || safeQty >= maxQty}
           onClick={() => setQty(safeQty + 1)}
           className="grid size-12 place-items-center rounded-full hover:bg-muted disabled:opacity-40"
         >
@@ -97,12 +97,18 @@ export default function Purchase({
 
       <Button
         size="lg"
-        disabled={disabled || pending}
+        disabled={disabled || pending || !loaded}
         onClick={() => add({ productId, variantId, quantity: safeQty })}
         className="h-12 min-w-48 flex-1 gap-2 rounded-full bg-accent font-bold text-accent-foreground hover:bg-accent/90"
       >
         <ShoppingBag className="size-5" />
-        {disabled ? disabledLabel : pending ? "Adding..." : "Add to Cart"}
+        {!loaded
+          ? "Loading cart..."
+          : disabled
+            ? disabledLabel
+            : pending
+              ? "Adding..."
+              : "Add to Cart"}
       </Button>
     </div>
   );
