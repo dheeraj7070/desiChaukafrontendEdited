@@ -1,0 +1,14 @@
+import { BannerCarousel } from "./component/banner";
+import { CategoryList } from "./component/categoryList";
+
+export default function AllProducts() {
+  
+  return (
+    <main className="mx-auto w-full max-w-7xl px-4 pb-16 lg:px-8">
+      <section className="my-6 sm:my-10">
+        <BannerCarousel />
+      </section>
+      <CategoryList />
+    </main>
+  );
+}

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "types": [
+        "./worker-configuration.d.ts",
+        "node",
+        "vinext/types"
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "types/product.tsttt", "app/page.tsxx", "app/(main)/layout.tsx", "app/(main)/products/page.tsxx", "app/(main)/products/loading.tsxx", "app/(main)/products/layout.tsxx", "app/(main)/cart/layout.tsxx"],
+  "exclude": ["node_modules"]
+}

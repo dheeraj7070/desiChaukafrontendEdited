@@ -1,0 +1,15 @@
+// import Header from "@/app/home/header/header";
+// import Offers from "../home/offers/offers";
+// import React from "react";
+// import { Toaster } from "@/components/ui/sonner";
+
+// export default function Layout({ children }: { children: React.ReactNode }) {
+//   return (
+//     <>
+//       <Offers />
+//       <Header />
+//       {children}
+//       <Toaster />
+//     </>
+//   );
+// }

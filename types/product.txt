@@ -1,0 +1,64 @@
+export type ProductImage = {
+  key: string
+  original: string
+  thumbnail: string
+  medium: string
+  large: string
+}
+
+export type ProductDetail = {
+  id: string
+  categoryId: string
+  name: string
+  aliases?: string[]
+  slug: string
+  description?: string
+  sku: string
+  priceMinor: number
+  compareAtPriceMinor?: number | null
+  currency: string
+  status: string
+  metadata?: string
+  thumbnail?: string
+  images?: ProductImage[],
+  label?:string,
+}
+
+export type SingleProductResponse = {
+  data?: {
+    product?: ProductDetail
+    products?: ProductDetail[]
+  }
+}
+
+export type ProductsApiResponse = {
+  success: boolean
+  message: string
+  status: number
+  data: {
+    products: ProductDetail[]
+    pagination: {
+      page: number
+      limit: number
+      hasMore: boolean
+      nextPage: number | null
+    }
+  }
+}
+
+export type GalleryImage = { src: string; thumb: string }
+
+export function parseMetadata(raw?: string): Record<string, string> {
+  try {
+    return raw ? JSON.parse(raw) : {}
+  } catch {
+    return {}
+  }
+}
+
+export function getGalleryImages(p: ProductDetail): GalleryImage[] {
+  if (p.images?.length) {
+    return p.images.map((i) => ({ src: i.medium, thumb: i.thumbnail }))
+  }
+  return p.thumbnail ? [{ src: p.thumbnail, thumb: p.thumbnail }] : []
+}
