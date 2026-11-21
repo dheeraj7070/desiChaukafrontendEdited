@@ -30,12 +30,12 @@ function BrandLogo() {
 
 function BrandName() {
   return (
-    <span className="flex min-w-0 flex-col leading-none">
-      <b className="whitespace-nowrap font-serif text-[17px] font-bold tracking-[0.06em] text-primary sm:text-xl md:text-2xl">
+    <span className="flex min-w-0 flex-col leading-none font-sans">
+      <b className="whitespace-nowrap text-[17px] font-bold tracking-[0.06em] text-primary sm:text-xl md:text-2xl">
         DESI CHAUKA
       </b>
       <small className="mt-1 hidden whitespace-nowrap text-[11px] leading-tight text-muted-foreground sm:block md:text-xs">
-        बिहार का स्वाद • घर का प्यार
+        माटी की खुशबू, परंपरा का स्वाद
       </small>
     </span>
   );

@@ -21,6 +21,8 @@ import { CategorySkeleton } from "../component/skeleton/categorySkeleton";
 import { getActiveVariants, resolveVariant } from "@/lib/variants";
 import { VariantSelector } from "../component/variant-selector";
 import { Metadata } from "next";
+import { ReviewListSkeleton } from "./reviewSkeleton";
+import { ReviewList } from "./reviewLoader";
 
 const IMG_CDN = "https://image.sonukr.in/cdn-cgi/image";
 
@@ -244,6 +246,10 @@ export default async function ProductPage({ params, searchParams }: Props) {
 
       <Suspense fallback={<CategorySkeleton />}>
         <RelatedProduct id={product.id} />
+      </Suspense>
+
+      <Suspense fallback={<ReviewListSkeleton />}>
+        <ReviewList productId={product.id} />
       </Suspense>
     </main>
   );

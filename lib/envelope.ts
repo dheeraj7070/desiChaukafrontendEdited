@@ -25,7 +25,7 @@ export async function requestEnvelope<T>(
 ): Promise<ApiResult<T>> {
   try {
     const res = await fetchApi(path, init);
-    // console.log(res);s
+    // console.log(await res.json());
     const body = (await res.json().catch((e) => null)) as ApiEnvelope<T> | null;
     // console.log(body);
     // res.ok mein 201 bhi aata hai (variant create ka HTTP status 201 hai)
@@ -47,6 +47,7 @@ export async function requestEnvelope<T>(
         message: "Session expired. Sign in again.",
       };
     }
+    console.log(`error for this url ${path}`);
     console.error(error);
     return {
       ok: false,
@@ -63,7 +64,9 @@ export async function publicRequestEnvelope<T>(
   try {
     const res = await publicApi2(path, init);
     const body = (await res.json().catch((e) => null)) as ApiEnvelope<T> | null;
+   
     // console.log(body);
+    
     // res.ok mein 201 bhi aata hai (variant create ka HTTP status 201 hai)
     if (!res.ok || !body?.success) {
       console.log(JSON.stringify(body));

@@ -3,6 +3,7 @@
 	"name": "learn",
 	"compatibility_date": "2026-10-11",
 	"main": "vinext/server/fetch-handler",
+	// "account_id": "ffb72a1e628f06c16728ab3ac459c8e1",
 	"assets": {
 		"directory": "dist/client",
 		"not_found_handling": "none",
@@ -17,18 +18,18 @@
 	"upload_source_maps": true,
 	"vars": {
 		"ACCESS_TOKEN_KEY": "__Host-customer_access",
-		"API": "https://desi-chauka-staging.sonu36437.workers.dev",
+		"API": "https://api.desichauka.in",
 		"NODE_ENV": "production",
 		"REFRESH_TOKEN_KEY": "__Host-customer_refresh",
 		"OTP_KEY": "verify_otp"
 	},
-	"kv_namespaces": [
-		{
-			"binding": "VINEXT_KV_CACHE",
-			"id": "bba9a3cbdd7c492e8c8f41078d8219a4",
-			"remote": true
-		}
-	],
+	// "kv_namespaces": [
+	// 	{
+	// 		"binding": "VINEXT_KV_CACHE",
+	// 		"id": "bba9a3cbdd7c492e8c8f41078d8219a4",
+	// 		"remote": true
+	// 	}
+	// ],
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

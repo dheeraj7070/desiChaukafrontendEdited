@@ -27,6 +27,7 @@ export async function registerAction(
   }
 
   const result = await registerUser(parsed.data);
+  console.log(result);
   if (!result.ok) {
     return { error: result.message, values };
   }

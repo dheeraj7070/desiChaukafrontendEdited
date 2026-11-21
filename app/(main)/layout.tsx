@@ -44,7 +44,6 @@ export default async function StoreLayout({
 }: {
   children: React.ReactNode;
   }) {
-  console.log("heloo ")
   return (
     <CartProvider>
       <Offers />

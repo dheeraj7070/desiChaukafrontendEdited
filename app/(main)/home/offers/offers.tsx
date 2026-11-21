@@ -22,8 +22,8 @@ export default function Offers() {
   return (
     <div className="bg-accent">
       <div className="h-10.5 px-2 whitespace-nowrap text-accent-foreground font-serif text-[12px] font-extrabold flex flex-nowrap items-center gap-4 overflow-hidden  animate-marquee">
-        {offersList.map((o) => (
-          <OfferItems text={o} />
+        {offersList.map((o, index) => (
+          <OfferItems key={o + index} text={o} />
         ))}
       </div>
     </div>
