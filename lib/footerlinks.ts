@@ -19,9 +19,8 @@ export type FooterGroup = {
 /* ---------- Brand ---------- */
 export const FOOTER_BRAND = {
   name: "DESI CHAUKA",
-  tagline: "बिहार का स्वाद • घर का प्यार",
-  about:
-    "Bihar ke traditional achaar, thekua aur mithai, ghar jaisi recipe se bani aur seedha aapke ghar tak.",
+  tagline: "माटी की खुशबू, परंपरा का स्वाद",
+  about: "",
 };
 
 /* ---------- Link groups (kitne bhi group/links rakh sakte ho) ---------- */
@@ -52,15 +51,27 @@ export const FOOTER_GROUPS: FooterGroup[] = [
       { id: "about", text: "About us", location: "/about" },
       { id: "terms", text: "Terms & conditions", location: "/terms" },
       { id: "privacy", text: "Privacy policy", location: "/privacy" },
-      { id: "refund", text: "Replacement & refund", location: "/refund-policy" },
+      {
+        id: "refund",
+        text: "Replacement & refund",
+        location: "/refund-policy",
+      },
     ],
   },
 ];
 
 /* ---------- Social: location khali ("") chhodo to wo link chhup jayega ---------- */
 export const FOOTER_SOCIAL: FooterLink[] = [
-  { id: "instagram", text: "Instagram", location: "https://instagram.com/your-handle" },
-  { id: "facebook", text: "Facebook", location: "https://facebook.com/your-page" },
+  {
+    id: "instagram",
+    text: "Instagram",
+    location: "https://instagram.com/your-handle",
+  },
+  {
+    id: "facebook",
+    text: "Facebook",
+    location: "https://facebook.com/your-page",
+  },
   { id: "youtube", text: "YouTube", location: "" },
 ];
 

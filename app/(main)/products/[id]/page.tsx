@@ -23,6 +23,8 @@ import { VariantSelector } from "../component/variant-selector";
 import { Metadata } from "next";
 import { ReviewListSkeleton } from "./reviewSkeleton";
 import { ReviewList } from "./reviewLoader";
+import { ProductDescription } from "@/components/product/product-description";
+import { editorDataJson } from "@/lib/json";
 
 const IMG_CDN = "https://image.sonukr.in/cdn-cgi/image";
 
@@ -243,6 +245,10 @@ export default async function ProductPage({ params, searchParams }: Props) {
           </div>
         </div>
       </div>
+
+     <div className="mt-8">
+       <ProductDescription value={editorDataJson} />
+     </div>
 
       <Suspense fallback={<CategorySkeleton />}>
         <RelatedProduct id={product.id} />

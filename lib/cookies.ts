@@ -46,3 +46,29 @@ export async function deleteCookie(key: string) {
   const store = await cookies();
   store.delete(key);
 }
+
+// export async function deleteAllCookies() {
+//   const store = await cookies();
+//   const foundCookies = store.getAll();
+
+//   console.log(foundCookies);
+
+//   foundCookies.forEach((cookie, _) => {
+//     store.delete(cookie.name);
+//   });
+// }
+
+const AUTH_COOKIES = ["__Host-customer_access", "__Host-customer_refresh"];
+
+export async function deleteAllCookies() {
+  const store = await cookies();
+  for (const name of AUTH_COOKIES) {
+    store.set(name, "", {
+      path: "/",
+      secure: true,
+      httpOnly: true,
+      maxAge: 0,
+      expires: new Date(0),
+    });
+  }
+}

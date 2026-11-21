@@ -13,7 +13,7 @@ export function RetryButton() {
       disabled={pending}
       onClick={() => startTransition(() => router.refresh())}
     >
-      {pending ? "Try ho raha hai..." : "Dobara try karo"}
+      {pending ? "Trying again..." : "Try again."}
     </Button>
   )
 }

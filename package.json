@@ -5,6 +5,15 @@
   "packageManager": "npm",
   "dependencies": {
     "@hookform/resolvers": "^7.0.0",
+    "@tiptap/core": "^3.35.0",
+    "@tiptap/extension-image": "^3.35.0",
+    "@tiptap/extension-text-align": "^3.35.0",
+    "@tiptap/extension-youtube": "^3.35.0",
+    "@tiptap/html": "^3.35.0",
+    "@tiptap/pm": "^3.35.0",
+    "@tiptap/react": "^3.35.0",
+    "@tiptap/starter-kit": "^3.35.0",
+    "@tiptap/static-renderer": "^3.35.0",
     "@vinext/cloudflare": "latest",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
@@ -27,6 +36,7 @@
   "devDependencies": {
     "@cloudflare/vite-plugin": "latest",
     "@tailwindcss/postcss": "latest",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^26.6.5",
     "@types/react": "latest",
     "@types/react-dom": "latest",

@@ -77,7 +77,7 @@ export function OrderList({ initialOrders, initialPagination }: Props) {
       >
         {loading && (
           <span className="inline-flex items-center gap-2">
-            <Loader2 className="size-4 animate-spin" /> Aur orders la rahe hain...
+            <Loader2 className="size-4 animate-spin" />
           </span>
         )}
         {error && (
@@ -85,18 +85,16 @@ export function OrderList({ initialOrders, initialPagination }: Props) {
             <p>{error.message}</p>
             {error.code === "UNAUTHORIZED" ? (
               <Button asChild size="sm">
-                <Link href="/login?next=/orders">Login karo</Link>
+                <Link href="/login?next=/orders">Please login.</Link>
               </Button>
             ) : (
               <Button variant="outline" size="sm" onClick={() => void loadMore()}>
-                Dobara try karo
+                Try again.
               </Button>
             )}
           </div>
         )}
-        {!loading && !error && nextPage == null && orders.length > 0 && (
-          <span>Saare orders dikh gaye</span>
-        )}
+        
       </div>
     </div>
   )

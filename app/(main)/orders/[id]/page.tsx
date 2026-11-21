@@ -76,6 +76,10 @@ export default async function OrderDetailPage({ params }: Props) {
             <OrderTimeline steps={steps} />
           </Panel>
 
+           <Panel title="">
+            <Link className="text-accent-foreground font-semibold flex justify-center hover:underline" href="/contact">Return Or Need Help? </Link>
+          </Panel>
+
           {order.remarks && (
             <Panel title="Note from store">
               <p className="text-sm whitespace-pre-line">{order.remarks}</p>

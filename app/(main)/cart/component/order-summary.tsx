@@ -64,10 +64,10 @@ export function OrderSummary({ cart }: { cart: Cart }) {
       <CardFooter className="flex-col gap-3">
         {hasUnavailable && (
           <p className="w-full text-sm text-destructive">
-            Kuch items available nahi hain. Unhe remove karke checkout kijiye.
+            Currently items are not available. Please remove them before checkout.
           </p>
         )}
-        <Button  asChild size="lg" className="w-full bg-accent">
+        <Button  asChild size="lg" className="w-full bg-accent text-accent-foreground hover:bg-accent/80">
           <Link
             href="/checkout"
             aria-disabled={hasUnavailable}
@@ -76,7 +76,7 @@ export function OrderSummary({ cart }: { cart: Cart }) {
             Proceed to checkout
           </Link>
         </Button>
-        <Button asChild variant="outline" className="w-full">
+        <Button asChild variant="link" className="w-full">
           <Link href="/products">Continue shopping</Link>
         </Button>
       </CardFooter>

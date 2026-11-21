@@ -2,7 +2,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:is(.dark *));
+
+
+img[data-align="left"],   iframe[data-align="left"]   { display: block; margin-left: 0;    margin-right: auto; }
+img[data-align="center"], iframe[data-align="center"] { display: block; margin-left: auto; margin-right: auto; }
+img[data-align="right"],  iframe[data-align="right"]  { display: block; margin-left: auto; margin-right: 0; }
 
 /* [EDIT] LIGHT THEME ------------------------------------------------------- */
 :root {

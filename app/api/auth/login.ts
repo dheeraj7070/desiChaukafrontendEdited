@@ -4,7 +4,7 @@ import { loginWithOtpSchema, verifyOtpSchema } from "./schema";
 import { redirect } from "next/navigation";
 
 import { AppError } from "@/lib/AppError";
-import { setCookie, parseAndSetCookie } from "@/lib/session";
+import { setCookie } from "@/lib/session";
 
 import z from "zod";
 import { fetchApi } from "@/lib/fetchApi";
@@ -75,7 +75,7 @@ export async function verifyOtp(
   await deleteCookie(otpKey);
   await setCookiesFromResponse(res); // ← yahi missing tha
 
-  redirect("/products"); // try/catch ke bahar hi rakhna
+  redirect("/"); // try/catch ke bahar hi rakhna
 }
 
 export async function refreshSession() {

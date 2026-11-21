@@ -3,17 +3,17 @@ import { SearchX } from "lucide-react"
 
 export function EmptyState({ search }: { search?: string }) {
   return (
-    <div className="flex flex-col items-center gap-3 py-20 text-center">
+    <div className="flex flex-col items-center py-20 text-center">
       <SearchX className="size-10 text-muted-foreground" aria-hidden />
       <h1 className="text-lg font-semibold">
-        {search ? <>“{search}” ke liye kuchh nahi mila</> : "Abhi koi product nahi hai"}
+        {search ? <>“{search}” No product found</> : "No product found"}
       </h1>
       <p className="max-w-sm text-sm text-muted-foreground">
-        Spelling check karo ya koi aur shabd try karo, jaise “thekua” ya “achar”.
+        Check Spelling  and try again.
       </p>
       {search && (
-        <Link href="/products" className="text-sm font-medium text-primary hover:underline">
-          Saare products dekho
+        <Link href="/" className="text-sm font-medium text-accent-foreground hover:underline">
+          Go to home
         </Link>
       )}
     </div>

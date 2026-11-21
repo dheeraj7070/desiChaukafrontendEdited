@@ -11,7 +11,7 @@ export async function ProductResults({ query }: { query: ProductListQuery }) {
   if (!result.ok) return <ErrorState message={result.message} />
 
   const { products, pagination } = result.data
-  if (products.length === 0) return <EmptyState search={query.search} />
+  if (products.length === 0) return <div><EmptyState search={query.search} /></div>
 
   const { totalCount } = pagination
   const noun = totalCount === 1 ? "result" : "results"

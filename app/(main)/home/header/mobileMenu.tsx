@@ -15,7 +15,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { NAV_LINKS } from "@/lib/navLinks";
+// import { NAV_LINKS } from "@/lib/navLinks";
 import { cn } from "@/lib/utils";
 import logo from "@/lib/assets/logo.webp";
 
@@ -61,14 +61,14 @@ export default function MobileMenu() {
                 DESI CHAUKA
               </SheetTitle>
               <SheetDescription className="mt-0.5 text-xs leading-snug">
-                बिहार का स्वाद • घर का प्यार
+               माटी की खुशबू, परंपरा का स्वाद
               </SheetDescription>
             </div>
           </div>
         </SheetHeader>
 
         <nav aria-label="Mobile" className="flex flex-col gap-0.5 p-2">
-          {NAV_LINKS.map((l) => {
+          {/* {NAV_LINKS.map((l) => {
             const active = isActive(l.location);
             return (
               // SheetClose: link dabate hi drawer band ho jaayega
@@ -82,7 +82,7 @@ export default function MobileMenu() {
                 </Link>
               </SheetClose>
             );
-          })}
+          })} */}
         </nav>
 
         <div className="mx-4 border-t" />
@@ -109,7 +109,7 @@ export default function MobileMenu() {
             </Link>
           </SheetClose>
           <SheetClose asChild>
-            <Link href="/cart" prefetch={false} className={row}>
+            <Link href="/orders" prefetch={false} className={row}>
               <ShoppingBag className="size-5" /> Order
             </Link>
           </SheetClose>
